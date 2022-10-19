@@ -1,0 +1,47 @@
+POST http://localhost:3800/api/register
+	{
+        "name":"dasda1",
+        "surname":"dasdas2",
+        "nick":"dasdas3",
+        "email":"sadas",
+        "password":"dsada34",
+        "role":"USER",
+        "image":"zzzz"
+    }
+
+
+POST http://localhost:3800/api/login
+    {
+        "email":"sadas",
+        "password":"dsada34"
+    }
+
+
+GET http://localhost:3800/api/user/:id
+HEADER: AUTHORIZATION = TOKENDEUSUARIO
+
+POST http://localhost:3800/api/follow
+HEADER: AUTHORIZATION = TOKENDEUSUARIO
+    {
+        "followed":"634ede2099464f799042888b"
+    }
+
+GET http://localhost:3800/api/followed/634ede2099464f799042888b
+HEADER: AUTHORIZATION = TOKENDEUSUARIO
+
+http://localhost:3800/api/following/634ede2099464f799042888b
+HEADER: AUTHORIZATION = TOKENDEUSUARIO
+
+GET http://localhost:3800/api/get-my-follows
+HEADER: AUTHORIZATION = TOKENDEUSUARIO
+GET http://localhost:3800/api/get-my-follows?followed=634ede2099464f799042888b
+HEADER: AUTHORIZATION = TOKENDEUSUARIO
+
+POST http://localhost:3800/api/publication
+HEADER: AUTHORIZATION = TOKENDEUSUARIO
+{
+    "text":"HOLA A TODOS"
+}
+
+GET http://localhost:3800/api/publications
+HEADER: AUTHORIZATION = TOKENDEUSUARIO
